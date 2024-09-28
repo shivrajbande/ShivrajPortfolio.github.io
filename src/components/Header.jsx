@@ -23,9 +23,14 @@ function Header() {
   };
 
   const handleDownLoadCv = (event) => {
-    // console.log(event.target.value);
-    // searchProducts(event.target.value);
+    const link = document.createElement('a');
+    link.href = '/Shivraj_Resume.pdf'; 
+    link.download = 'Shivraj_Resume.pdf'; 
+    document.body.appendChild(link); 
+    link.click(); 
+    document.body.removeChild(link);
   };
+  
   const headerText = "<SB/>";
   return (
     <Box
@@ -82,7 +87,7 @@ function Header() {
             sx={{
               color: "black",
               textDecoration: "none", // Removes underline
-              fontSize: "18px", // Changes font size
+              fontSize: "16px", // Changes font size
               "&:hover": {
                 textDecoration: "underline",
                 textUnderlineOffset: "4px",
@@ -100,7 +105,7 @@ function Header() {
             sx={{
               color: "black",
               textDecoration: "none", // Removes underline
-              fontSize: "18px", // Changes font size
+              fontSize: "16px", // Changes font size
               "&:hover": {
                 textDecoration: "underline",
                 textUnderlineOffset: "4px",
@@ -118,7 +123,7 @@ function Header() {
               color: "black",
               cursor: "pointer",
               textDecoration: "none",
-              fontSize: "18px",
+              fontSize: "16px",
               "&:hover": {
                 textUnderlineOffset: "4px",
                 textDecoration: "underline",
@@ -137,7 +142,7 @@ function Header() {
               color: "black",
               cursor: "pointer",
               textDecoration: "none",
-              fontSize: "18px",
+              fontSize: "16px",
 
               "&:hover": {
                 textUnderlineOffset: "4px",
@@ -157,7 +162,27 @@ function Header() {
               color: "black",
               cursor: "pointer",
               textDecoration: "none",
-              fontSize: "18px",
+              fontSize: "16px",
+              fontWeight: "400",
+              "&:hover": {
+                textUnderlineOffset: "4px",
+                textDecoration: "underline",
+                textDecorationColor: "rgb(255, 92, 0)",
+                textDecorationThickness: "2px",
+              },
+            }}
+            to="/contactPage"
+          >
+            Blogs
+          </Box>
+
+          <Box
+            component={Link}
+            sx={{
+              color: "black",
+              cursor: "pointer",
+              textDecoration: "none",
+              fontSize: "16px",
               fontWeight: "400",
               "&:hover": {
                 textUnderlineOffset: "4px",
@@ -176,18 +201,6 @@ function Header() {
             onClick={handleDownLoadCv}
             textColor="white"
           />
-
-          {/* <Button
-              variant="outlined"
-              sx={{
-                marginLeft: "30px",
-                background: "rgb(255, 92, 0)",
-                color: "white",
-                borderColor: "rgb(255, 92, 0)",
-              }}
-            >
-              Download CV
-            </Button> */}
         </Box>
       )}
     </Box>

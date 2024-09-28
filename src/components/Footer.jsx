@@ -1,6 +1,14 @@
 import React from "react";
-import { Box, Typography, Divider, Link } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Divider,
+  Link,
+  TextField,
+  Button,
+} from "@mui/material";
 import { LinkedIn, Google, GitHub, Instagram } from "@mui/icons-material";
+import CustomButton from "./CustomButton";
 
 function Footer() {
   return (
@@ -9,39 +17,107 @@ function Footer() {
         sx={{
           display: "flex",
           padding: "20px",
-          //   background: "rgb(12,84,190)",
           background: "black",
           color: "white",
           justifyContent: "space-between",
-          // margin : "0px 10px"
         }}
       >
-        <Box sx={{ flex: 1, marginRight: "10px" }}>
-          <Typography variant="h5" sx={{ marginBottom: "15px" }}>
+        {/* Branding Section */}
+        <Box sx={{ flex: 1, marginRight: "10px", display: "none" }}>
+          <Typography
+            sx={{ marginBottom: "15px", fontSize: "20px", fontWeight: "500" }}
+          >
             Vendoza
           </Typography>
           <Typography variant="body2">
-            At Vendoza, we bring you a seamless and personalized shopping
-            experience. Browse through thousands of curated products from global
-            brands and local artisans, all in one place.
+            Vendoza is your gateway to curated products from global brands and
+            local artisans. We focus on providing a personalized shopping
+            experience with exceptional quality and customer service.
           </Typography>
         </Box>
-        <Box flex={1}></Box>
+
+        {/* Newsletter Subscription Section */}
+        <Box flex={1}>
+          <Typography
+            sx={{ marginBottom: "15px", fontSize: "20px", fontWeight: "500" }}
+          >
+            Subscribe to my Newsletter
+          </Typography>
+          <Typography variant="body2">
+            Stay updated with solutions and blogs.
+          </Typography>
+          <Box component="form" sx={{ marginTop: "10px" }}>
+            {/* <input
+              type="email"
+              placeholder="Your email"
+              style={{ padding: "8px", width: "80%" }}
+            /> */}
+
+            <TextField
+              type="email"
+              color="white"
+              size="small"
+              placeholder="Enter your email ..."
+              sx={{
+                background: "white",
+                width: "80%",
+                height: "40px",
+                borderRadius: "4px",
+                marginBottom: "8px",
+              }}
+              slotProps={
+                {
+                  input: {
+                    style: { fontSize: "12px" }, 
+                  },
+                }
+              }
+              // InputProps={{
+              //   style: { fontSize: "16px" }, // Change this to your desired font size
+              // }}
+              // InputLabelProps={{
+              //   style: { fontSize: "16px" }, // Change this to your desired font size for the label
+              // }}
+            />
+            {/* <button
+              type="submit"
+              style={{ padding: "8px", marginLeft: "0px", marginTop : "5px" }}
+            >
+              Subscribe
+            </button> */}
+            <CustomButton
+              text={"Subscribe"}
+              textColor={"black"}
+              backGroundColor={"white"}
+            />
+          </Box>
+        </Box>
+
+        {/* About, Contact, and Social Links Section */}
         <Box
           sx={{
             display: "flex",
             flexDirection: "row",
-            flex: 3,
-            marginRight: "10px",
-            justifyContent: "space-around",
+            flex: "3",
+            // background : "red",
+            justifyContent: "space-evenly",
           }}
         >
-          <Box sx={{ flex: 1, marginRight: "10px" }}>
-            <Typography variant="h5" sx={{ marginBottom: "15px" }}>
+          {/* About Section */}
+          <Box sx={{ marginRight: "10px" }}>
+            <Typography
+              sx={{ marginBottom: "15px", fontSize: "20px", fontWeight: "500" }}
+            >
               About
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Link href="#" underline="none" color="white" target="_blank">
+              <Link
+                href="#"
+                underline="none"
+                color="white"
+                target="_blank"
+                sx={{ marginBottom: "4px" }}
+              >
                 About Us
               </Link>
               <Link href="#" underline="none" color="white" target="_blank">
@@ -49,19 +125,39 @@ function Footer() {
               </Link>
             </Box>
           </Box>
-          <Box sx={{ flex: 1, marginRight: "10px" }}>
-            <Typography variant="h5" sx={{ marginBottom: "15px" }}>
+
+          {/* Contact Section */}
+          <Box sx={{ marginRight: "10px" }}>
+            <Typography
+              sx={{ marginBottom: "15px", fontSize: "20px", fontWeight: "500" }}
+            >
               Contact
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Link href="#" underline="none" color="white" target="_blank">
+              <Link
+                href="#"
+                underline="none"
+                color="white"
+                target="_blank"
+                sx={{ marginBottom: "4px" }}
+              >
                 FAQ's
               </Link>
-              <Typography>Shivabande09@gmail.com</Typography>
+              <Typography sx={{ fontSize: "15px", marginBottom: "4px" }}>
+                Email: Shivabande09@gmail.com
+              </Typography>
+              {/* <Typography sx={{fontSize : "15px", marginBottom: "4px"}}>Phone: +91-7995646061</Typography> */}
+              <Typography sx={{ fontSize: "15px", marginBottom: "4px" }}>
+                Location: Hyderabad, India
+              </Typography>
             </Box>
           </Box>
-          <Box sx={{ flex: 1, marginRight: "10px" }}>
-            <Typography variant="h5" sx={{ marginBottom: "15px" }}>
+
+          {/* Social Links Section */}
+          <Box sx={{ marginRight: "10px" }}>
+            <Typography
+              sx={{ marginBottom: "15px", fontSize: "20px", fontWeight: "500" }}
+            >
               Social
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
@@ -72,12 +168,13 @@ function Footer() {
                   marginBottom: "6px",
                 }}
               >
-                <LinkedIn sx={{ marginRight: "4px" }} />
+                <LinkedIn sx={{ marginRight: "4px", fontSize: "20px" }} />
                 <Link
                   href="https://linkedin.com/in/shivraj-bande"
                   underline="none"
                   color="white"
                   target="_blank"
+                  sx={{ marginBottom: "4px" }}
                 >
                   LinkedIn
                 </Link>
@@ -89,14 +186,15 @@ function Footer() {
                   marginBottom: "6px",
                 }}
               >
-                <GitHub sx={{ marginRight: "4px" }} />
+                <GitHub sx={{ marginRight: "4px", fontSize: "20px" }} />
                 <Link
                   href="https://github.com/shivrajbande"
                   underline="none"
                   color="white"
                   target="_blank"
+                  sx={{ marginBottom: "4px" }}
                 >
-                  Github
+                  GitHub
                 </Link>
               </Box>
               <Box
@@ -106,16 +204,42 @@ function Footer() {
                   marginBottom: "6px",
                 }}
               >
-                <Instagram sx={{ marginRight: "4px" }} />
-                <Link href="#" underline="none" color="white" target="_blank">
+                <Instagram sx={{ marginRight: "4px", fontSize: "20px" }} />
+                <Link
+                  href="#"
+                  underline="none"
+                  color="white"
+                  target="_blank"
+                  sx={{ marginBottom: "4px" }}
+                >
                   Instagram
+                </Link>
+              </Box>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  marginBottom: "6px",
+                  display: "none",
+                }}
+              >
+                <Google sx={{ marginRight: "4px", fontSize: "20px" }} />
+                <Link href="#" underline="none" color="white" target="_blank">
+                  Google
                 </Link>
               </Box>
             </Box>
           </Box>
         </Box>
       </Box>
+
+      {/* Footer Divider and Copyright */}
+      <Divider sx={{ backgroundColor: "white", marginY: "20px" }} />
+      <Typography variant="body2" align="center" sx={{ paddingBottom: "10px" }}>
+        © 2024 Shivraj Bande. All Rights Reserved.
+      </Typography>
     </>
   );
 }
+
 export default Footer;

@@ -54,26 +54,32 @@ function LandingPage() {
         </Box>
       </Box>
 
-      <Typography
-        sx={{ fontSize: "20px", fontWeight: "600", textAlign: "center" }}
-      >
-        Work approach steps
-      </Typography>
-      <WorkApproachSteps />
-
-      <Box sx={{background: "rgb(255,255,240)"}}>
+      <Box sx={{ background: "white" }}>
         <Typography
-          sx={{ fontSize: "20px", fontWeight: "600", textAlign: "center" }}
+          sx={{
+            fontSize: "20px",
+            fontWeight: "600",
+            textAlign: "center",
+            padding: "10px 0px",
+          }}
+        >
+         Project Approach & Execution
+        </Typography>
+        <WorkApproachSteps />
+      </Box>
+      <Box sx={{ background: "rgb(255,255,240)" }}>
+        <Typography
+          sx={{ fontSize: "20px", fontWeight: "600", textAlign: "center" ,paddingTop : "20px"}}
         >
           Techincal Skills
         </Typography>
         <SkillSet />
-        <Typography
+        {/* <Typography
           sx={{ fontSize: "20px", fontWeight: "600", textAlign: "center" }}
         >
           Work-Experience
         </Typography>
-        <Experience />
+        <Experience /> */}
       </Box>
       <Footer />
     </Box>
