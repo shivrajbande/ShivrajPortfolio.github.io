@@ -8,20 +8,22 @@ import MyProjects from "./pages/MyProjects";
 import MySolutionsPage from "./pages/MySolutionsPage";
 
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import {NavBarProvider} from "./context/NavContext";
 
 function App() {
   return (
-    <Router>
-    <Routes>
-      <Route path="/" element={<LandingPage />} />
-      <Route path="/contactPage" element={<ContactPage />} />
-      <Route path="/projectsPage" element={<MyProjects />} />
-      <Route path="/SolutionsPage" element={<MySolutionsPage />} />
-      <Route path="/aboutPage" element={<AboutPage />} />
-      <Route path="/Shivraj_Resume.pdf" element={null} />
-    </Routes>
-  </Router>
-  
+    <NavBarProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/contactPage" element={<ContactPage />} />
+          <Route path="/projectsPage" element={<MyProjects />} />
+          <Route path="/SolutionsPage" element={<MySolutionsPage />} />
+          <Route path="/aboutPage" element={<AboutPage />} />
+          <Route path="/Shivraj_Resume.pdf" element={null} />
+        </Routes>
+      </Router>
+    </NavBarProvider>
   );
 }
 

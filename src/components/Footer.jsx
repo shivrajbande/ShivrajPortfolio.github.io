@@ -7,8 +7,16 @@ import {
   TextField,
   Button,
 } from "@mui/material";
-import { LinkedIn, Google, GitHub, Instagram } from "@mui/icons-material";
+import {
+  LinkedIn,
+  Google,
+  GitHub,
+  Instagram,
+  Email,
+  Place,
+} from "@mui/icons-material";
 import CustomButton from "./CustomButton";
+import LayoutConstants from "../constants/layout";
 
 function Footer() {
   return (
@@ -16,7 +24,8 @@ function Footer() {
       <Box
         sx={{
           display: "flex",
-          padding: "20px",
+          paddingY: "20px",
+          paddingX: LayoutConstants.PAGE_HORIZONTAL_PADDING,
           background: "black",
           color: "white",
           justifyContent: "space-between",
@@ -61,17 +70,14 @@ function Footer() {
               sx={{
                 background: "white",
                 width: "80%",
-                height: "40px",
                 borderRadius: "4px",
                 marginBottom: "8px",
               }}
-              slotProps={
-                {
-                  input: {
-                    style: { fontSize: "12px" }, 
-                  },
-                }
-              }
+              slotProps={{
+                input: {
+                  style: { fontSize: "12px" },
+                },
+              }}
               // InputProps={{
               //   style: { fontSize: "16px" }, // Change this to your desired font size
               // }}
@@ -85,11 +91,25 @@ function Footer() {
             >
               Subscribe
             </button> */}
-            <CustomButton
+            {/* <CustomButton
               text={"Subscribe"}
               textColor={"black"}
               backGroundColor={"white"}
-            />
+            /> */}
+
+            <Button
+              variant="outlined"
+              sx={{
+                borderRadius: "4px",
+                backgroundColor: "rgb(255, 92, 0)",
+                color: "white",
+                borderColor: "transparent",
+                fontSize: "12px",
+              }}
+              // onClick={onClick}
+            >
+              Subscribe
+            </Button>
           </Box>
         </Box>
 
@@ -100,7 +120,7 @@ function Footer() {
             flexDirection: "row",
             flex: "3",
             // background : "red",
-            justifyContent: "space-evenly",
+            justifyContent: "space-around",
           }}
         >
           {/* About Section */}
@@ -134,7 +154,7 @@ function Footer() {
               Contact
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Link
+              {/* <Link
                 href="#"
                 underline="none"
                 color="white"
@@ -142,14 +162,23 @@ function Footer() {
                 sx={{ marginBottom: "4px" }}
               >
                 FAQ's
-              </Link>
-              <Typography sx={{ fontSize: "15px", marginBottom: "4px" }}>
-                Email: Shivabande09@gmail.com
-              </Typography>
+              </Link> */}
+
+              <Box sx={{ display: "flex" }}>
+                <Email sx={{marginRight: "4px"}} />
+                <Typography sx={{ fontSize: "15px", marginBottom: "4px", }}>
+                shivabande09@gmail.com
+                </Typography>
+              </Box>
+
+             
               {/* <Typography sx={{fontSize : "15px", marginBottom: "4px"}}>Phone: +91-7995646061</Typography> */}
-              <Typography sx={{ fontSize: "15px", marginBottom: "4px" }}>
-                Location: Hyderabad, India
-              </Typography>
+              <Box sx={{ display: "flex" }}>
+                <Place sx={{marginRight: "4px"}}/>
+                <Typography sx={{ fontSize: "15px", marginBottom: "4px" }}>
+                  Hyderabad, India
+                </Typography>
+              </Box>
             </Box>
           </Box>
 

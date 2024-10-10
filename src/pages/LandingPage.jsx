@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Box, Typography, Container, Button } from "@mui/material";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
@@ -7,8 +7,25 @@ import CustomButton from "../components/CustomButton";
 import SkillSet from "../components/SkillSet";
 import Experience from "../components/Experience";
 import WorkApproachSteps from "../components/WorkApproach";
-
+import LayoutConstants from "../constants/layout";
+import { NabIndexContext } from "../context/NavContext";
 function LandingPage() {
+  const { navIndex, setNavIndex } = useContext(NabIndexContext);
+  const roles = ["Software Developer", "Entrepreneur", "Freelancer"];
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [role, setRole] = useState(roles[roleIndex]);
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     setRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+  //   }, 20000);
+
+  //   // Update role based on index
+  //   setRole(roles[roleIndex]);
+
+  //   // Cleanup interval on component unmount
+  //   return () => clearInterval(intervalId);
+  // }, [roleIndex, roles]);
+
   const handleWorkButton = () => {};
   return (
     <Box>
@@ -18,14 +35,17 @@ function LandingPage() {
         display={"flex"}
         justifyContent={"center"}
         alignItems={"center"}
-        sx={{ background: "rgb(255,255,240)", padding: "10px" }}
+        sx={{
+          background: "rgb(255,255,240)",
+          paddingX: LayoutConstants.PAGE_HORIZONTAL_PADDING,
+        }}
       >
         <Box sx={{ display: "flex", flex: "1", justifyContent: "center" }}>
           <img
             src={profileImage}
             alt="profile"
-            height={"350px"}
-            width={"auto"}
+            height={"auto"}
+            width={"300px"}
             style={{
               padding: "10px",
               borderRadius: "0%",
@@ -35,19 +55,30 @@ function LandingPage() {
         </Box>
         <Box sx={{ flex: "1" }}>
           <Typography>Hi, i am Shivraj Bande</Typography>
-          <Typography sx={{ fontSize: "30px", fontWeight: "600" }}>
-            Freelancer | Fullstack developer
+          <Typography
+            sx={{
+              fontSize: "30px",
+              fontWeight: "600",
+              // transition: "transform 0.5s ease",
+              // transform: `translateX(10%)`,
+              // display: "inline-block",
+            }}
+          >
+            {role}
           </Typography>
 
-          <Typography sx={{ whiteSpace: "normal" }}>
-            ewtghrth wthe rthtrehr wrhrth rthtrhtr werhewth ewrhweth rewwer
-            erwewhwe werwertuyfqweryuf eriueg uihewriuh iheriohwqr iohqrerknqwor
-            iuhqiwejbtfqw ihjbrgeqih
+          <Typography sx={{ whiteSpace: "normal", marginBottom: "20px" }}>
+            Software Developer with 2 years of experience and a proven track
+            record of delivering high-quality user interfaces and robust code
+            solutions. Proficient in web and mobile apps development.
+            Experienced in fostering collaborative relationships across teams to
+            achieve project objectives efficiently. Committed to keeping up with
+            emerging technologies in software development.
           </Typography>
 
           <CustomButton
             backGroundColor="rgb(255, 92, 0)"
-            text="See my work"
+            text="About me"
             onClick={handleWorkButton}
             textColor="white"
           />
@@ -63,13 +94,18 @@ function LandingPage() {
             padding: "10px 0px",
           }}
         >
-         Project Approach & Execution
+          Project Approach & Execution
         </Typography>
         <WorkApproachSteps />
       </Box>
       <Box sx={{ background: "rgb(255,255,240)" }}>
         <Typography
-          sx={{ fontSize: "20px", fontWeight: "600", textAlign: "center" ,paddingTop : "20px"}}
+          sx={{
+            fontSize: "20px",
+            fontWeight: "600",
+            textAlign: "center",
+            paddingTop: "20px",
+          }}
         >
           Techincal Skills
         </Typography>

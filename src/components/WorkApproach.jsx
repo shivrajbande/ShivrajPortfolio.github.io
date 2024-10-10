@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Typography } from "@mui/material";
+import LayoutConstants from "../constants/layout";
 
 function WorkApproachSteps() {
 
@@ -27,7 +28,7 @@ function WorkApproachSteps() {
   ];
   
   return (
-    <Box display={ "flex"} justifyContent={ "center"} gap={"10px"} sx={{padding:"20px 40px"}}>
+    <Box display={ "flex"} justifyContent={ "center"} gap={"10px"} sx={{paddingY:"20px" ,paddingX : LayoutConstants.PAGE_HORIZONTAL_PADDING}}>
       {servicePoints.map((service)=>(
         <Box flex={"1"} display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"} sx={{background :"white"}}>
            <Box sx={{borderRadius : "100%", border:"1px solid rgb(255, 92, 0)", padding:"5px 8px", background:"white"}}><img src={service.icon} alt={service.title} width={"30px"} height={"auto"}/></Box>
