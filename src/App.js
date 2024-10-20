@@ -7,22 +7,21 @@ import AboutPage from "./pages/AboutPage";
 import MyProjects from "./pages/MyProjects";
 import MySolutionsPage from "./pages/MySolutionsPage";
 
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
-import {NavBarProvider} from "./context/NavContext";
+import { Router, Route, Routes } from "react-router-dom";
+import { NavBarProvider } from "./context/NavContext";
+import BlogPage from "./pages/BlogPage";
 
 function App() {
   return (
     <NavBarProvider>
-      <Router>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/contactPage" element={<ContactPage />} />
-          <Route path="/projectsPage" element={<MyProjects />} />
-          <Route path="/SolutionsPage" element={<MySolutionsPage />} />
-          <Route path="/aboutPage" element={<AboutPage />} />
-          <Route path="/Shivraj_Resume.pdf" element={null} />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/Contact" element={<ContactPage />} />
+        <Route path="/Projects" element={<MyProjects />} />
+        <Route path="/Solutions" element={<MySolutionsPage />} />
+        <Route path="/About" element={<AboutPage />} />
+        <Route path="/Blogs" element={<BlogPage />} />
+      </Routes>
     </NavBarProvider>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Box, Typography } from "@mui/material";
-import Content from "../constants/content";
+import {Sections} from "../constants/content";
 import LayoutConstants from "../constants/layout";
 
 function AboutPage() {
@@ -14,34 +14,45 @@ function AboutPage() {
           paddingX: LayoutConstants.PAGE_HORIZONTAL_PADDING,
         }}
       >
-        <Box sx={{ backgroundColor: "rgb(255,255,240)" }}>
-          <Typography sx={{ fontWeight: 600 }}>About Me</Typography>
-          <Typography sx={{ whiteSpace: "normal" }}>
-            {Content.AboutMeContent}
-          </Typography>
-        </Box>
-        <Box>
-          <Typography sx={{ fontWeight: 600 }}>
-            Experience and Expertise
-          </Typography>
-          <Typography sx={{ whiteSpace: "pre-line" }}>
-            {Content.Expertise}
-          </Typography>
-        </Box>
-        <Box sx={{ backgroundColor: "rgb(255,255,240)" }}>
-          <Typography sx={{ fontWeight: 600 }}>
-            Entrepreneurial Journey
-          </Typography>
-          <Typography sx={{ whiteSpace: "pre-line" }}>
-            {Content.Entrepreneur}
-          </Typography>
-        </Box>
-        <Box>
-          <Typography sx={{ fontWeight: 600 }}>Vision & Values</Typography>
-          <Typography sx={{ whiteSpace: "pre-line" }}>
-            {Content.vision}
-          </Typography>
-        </Box>
+        {Sections.map((section, index) => (
+          <Box
+            sx={{
+              display: "flex",
+              backgroundColor: index % 2 !== 0 ? "white" : "rgb(255,255,240)",
+              height: "400px",
+              width: "100%",
+              flexDirection: index % 2 === 0 ? "row-reverse" : "row",
+              justifyContent: "space-between",
+              padding: "20px",
+            }}
+          >
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                width: "60%",
+                alignItems: "start",
+                justifyContent: "center",
+              }}
+            >
+              <Typography sx={{ fontWeight: 600, fontSize: "28px" }}>
+                {section.sectionName}
+              </Typography>
+              <Typography sx={{ whiteSpace: "normal", fontSize: "18px" }}>
+                {section.text}
+              </Typography>
+            </Box>
+            <Box sx={{}}>
+              <img
+                src={section.image}
+                alt="about me"
+                width={index === 0 ? "200px" : "auto"}
+                height={index === 0 ? "300px" : "400px"}
+                style={{ objectFit: "contain" }}
+              />
+            </Box>
+          </Box>
+        ))}
       </Box>
 
       <Footer />

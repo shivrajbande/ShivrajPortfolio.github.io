@@ -1,5 +1,5 @@
 
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext,  useState } from "react";
 export const NabIndexContext = createContext();
 
 export const NavBarProvider = ({children}) => {

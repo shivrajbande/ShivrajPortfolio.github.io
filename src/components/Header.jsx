@@ -1,11 +1,8 @@
-import React, { useState ,useContext} from "react";
+import React, { useContext} from "react";
 import {
   Box,
   Typography,
-  TextField,
-  InputAdornment,
-  Button,
-  Badge,
+ 
   useMediaQuery,
 } from "@mui/material";
 import { Link } from "react-router-dom";
@@ -23,11 +20,12 @@ function Header() {
   const navigateToHome = () => {
     // navigate("/");
   };
-  console.log(navIndex);
+
 
   const handleDownLoadCv = (event) => {
+    event.preventDefault();
     const link = document.createElement("a");
-    link.href = "/Shivraj_Resume.pdf";
+    link.href = `${process.env.PUBLIC_URL}/Shivraj_Resume.pdf`;
     link.download = "Shivraj_Resume.pdf";
     document.body.appendChild(link);
     link.click();
@@ -111,7 +109,7 @@ function Header() {
 
           <Box
             component={Link}
-            to="/aboutPage"
+            to="/About"
             onClick={() => setNavIndex(1)}
             sx={{
               color: "black",
@@ -152,7 +150,7 @@ function Header() {
               textDecorationColor: "red",
               textDecorationThickness: "2px",
             }}
-            to="/projectsPage"
+            to="/Projects"
           >
             Projects
           </Box>
@@ -177,7 +175,7 @@ function Header() {
               textDecorationColor: "red",
               textDecorationThickness: "2px",
             }}
-            to="/SolutionsPage"
+            to="/Solutions"
           >
             Solutions
           </Box>
@@ -202,7 +200,7 @@ function Header() {
               textDecorationColor: "red",
               textDecorationThickness: "2px",
             }}
-            to="/contactPage"
+            to="/Blogs"
           >
             Blogs
           </Box>
@@ -228,7 +226,7 @@ function Header() {
               textDecorationColor: "rgb(255, 92, 0)",
               textDecorationThickness: "2px",
             }}
-            to="/contactPage"
+            to="/Contact"
           >
             Contact
           </Box>
