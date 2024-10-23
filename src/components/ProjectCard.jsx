@@ -20,7 +20,7 @@ export default function ProjectCard({
     <Card sx={{ height: "300px", width: "300px" }}>
       <CardContent>
         <Typography>{projectName}</Typography>
-        <img src={thumbnail} alt="projectName" />
+        <img src={thumbnail} alt="projectName" style={{objectFit : "cover"}} width={"300px"} height={ "300px"}/>
         <Typography>{shortDescription}</Typography>
       </CardContent>
       <CardActions>

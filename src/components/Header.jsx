@@ -52,25 +52,7 @@ function Header() {
         {headerText}
       </Typography>
 
-      {/* <div
-          onClick={() => navigateToHome()}
-          style={{
-            display: "flex",
-          
-          
-            background: "pink",
-          
-            paddingLeft: "0px",
-            cursor: "pointer",
-          }}
-        >
-          <Typography
-            variant="h6"
-            sx={{ color: "rgb(2, 48, 32)", fontWeight: "600" }}
-          >
-            {headerText}
-          </Typography>
-        </div> */}
+     
 
       {isMobile === true ? (
         <></>
@@ -78,10 +60,8 @@ function Header() {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "space-evenly",
             alignItems: "center",
             gap: "60px",
-            padding: "0px 40px",
           }}
         >
           <Box

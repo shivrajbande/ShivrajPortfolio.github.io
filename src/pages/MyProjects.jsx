@@ -4,16 +4,16 @@ import ProjectCard from "../components/ProjectCard";
 import { projectsData, mobileAppsProjects } from "../constants/projects";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import LayoutConstants from "../constants/layout";
 
 function MyProjects() {
   return (
     <Box>
       <Header/>
-
-      <Box>
-      <Typography>Web Developement projects</Typography>
-      <Divider/>
-      <Grid container columnSpacing={10} rowSpacing={10} direction={"row"}>
+      <Box sx={{paddingX : LayoutConstants.PAGE_HORIZONTAL_PADDING,display : "flex",flexDirection : "column",justifyContent : "start"}}>
+      <h2>Web Developement projects</h2>
+      
+      <Grid container columnSpacing={7} rowSpacing={10} direction={"row"}>
         {projectsData.map((project) => (
           <ProjectCard
             projectName={project.projectName}
@@ -25,13 +25,14 @@ function MyProjects() {
           />
         ))}
       </Grid>
+      <Divider sx={{marginTop : "80px"}}/>
       </Box>
+     
 
-
-      <Box>
-      <Typography>Application Developement Projects</Typography>
-      <Divider/>  
-      <Grid container columnSpacing={10} rowSpacing={10} direction={"row"}>
+      <Box sx={{padding : LayoutConstants.PAGE_HORIZONTAL_PADDING}}>
+      <h2>Application Developement Projects</h2>
+      
+      <Grid container columnSpacing={7} rowSpacing={10} direction={"row"}>
         {mobileAppsProjects.map((project) => (
           <ProjectCard
             projectName={project.projectName}

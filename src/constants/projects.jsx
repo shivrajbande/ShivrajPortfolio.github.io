@@ -1,3 +1,7 @@
+import college from "../assets/images/iit rourke3.jpg";
+import hostel from "../assets/images/hostel.jpg";
+import basket from "../assets/images/smartnbasket.jpg";
+
 export const projectsData = [
   {
     projectName: "Weather-web-app",
@@ -7,7 +11,7 @@ export const projectsData = [
     contributors: ["Shivraj Bande"],
     shortDescription: "",
     thumbNail:
-      "https://raw.githubusercontent.com/shivrajbande/College-Management-System/main/screenshot.png",
+      "https://images.unsplash.com/photo-1531147646552-1eec68116469?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     isLive : true,
   },
   {
@@ -18,7 +22,7 @@ export const projectsData = [
     shortDescription: "",
     contributors: ["Shivraj Bande", "Boda Ganesh"],
     thumbNail:
-      "https://raw.githubusercontent.com/shivrajbande/Retail-Management-System/main/screenshot.png", // Update with actual thumbnail if available
+      "https://media.licdn.com/dms/image/D4E12AQHmJjh1V0VBIg/article-cover_image-shrink_600_2000/0/1673722914401?e=2147483647&v=beta&t=AW_eULKaPSU_6SaP5v5F6MTrFLDEuVKotK1iulNfM88", 
       isLive : false,
   },
   {
@@ -29,7 +33,7 @@ export const projectsData = [
     shortDescription: "",
     contributors: ["Shivraj Bande"],
     thumbNail:
-      "https://raw.githubusercontent.com/shivrajbande/Portfolio-Website/main/screenshot.png",
+      "https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2021/08/how-to-make-an-online-portfolio.webp",
       isLive : true,
   },
   {
@@ -40,7 +44,7 @@ export const projectsData = [
     shortDescription: "",
     contributors: ["Shivraj Bande"],
     thumbNail:
-      "https://raw.githubusercontent.com/shivrajbande/E-commerce-Website/main/screenshot.png", // Update with actual thumbnail if available
+      "https://images.unsplash.com/photo-1677693972403-db681288b5da?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8",
       isLive : true,
   },
   {
@@ -51,7 +55,7 @@ export const projectsData = [
     shortDescription: "",
     contributors: ["Shivraj Bande"],
     thumbNail:
-      "https://raw.githubusercontent.com/shivrajbande/Task-Management-App/main/screenshot.png", // Update with actual thumbnail if available
+      "https://images.unsplash.com/photo-1523349122880-44486ffa7b14?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y3JvcCUyMHByZWRpY3Rpb258ZW58MHx8MHx8fDI%3D", // Update with actual thumbnail if available
       isLive : false,
   },
 ];
@@ -66,7 +70,7 @@ export const mobileAppsProjects = [
     shortDescription: "A mobile app for seamless online shopping experience.",
     isLive: false,
     thumbNail:
-      "https://raw.githubusercontent.com/shivrajbande/e-commerce-app/main/screenshot.png", // Update with actual thumbnail if available
+      "https://images.unsplash.com/photo-1648091856362-62436bfb145a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG9ubGluZSUyMHNob3BwaW5nfGVufDB8fDB8fHwy", // Update with actual thumbnail if available
   },
   {
     projectName: "Apps-generator",
@@ -77,7 +81,7 @@ export const mobileAppsProjects = [
     isLive: false,
     contributors: ["Shivraj Bande", "Boda Ganesh"],
     thumbNail:
-      "https://raw.githubusercontent.com/shivrajbande/apk-generation-app/main/screenshot.png", // Update with actual thumbnail if available
+      "https://images.unsplash.com/photo-1600783245448-29b1aeb067b5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YXBwc3xlbnwwfHwwfHx8Mg%3D%3D", // Update with actual thumbnail if available
   },
   {
     projectName: "Gate-pass-App",
@@ -88,7 +92,7 @@ export const mobileAppsProjects = [
     isLive: false,
     contributors: ["Shivraj Bande"],
     thumbNail:
-      "https://raw.githubusercontent.com/shivrajbande/Gate-Pass-FacultyApp-FrontEnd/main/screenshot.png", // Update with actual thumbnail if available
+      "https://images.unsplash.com/photo-1682956767575-79aac8acb17c?q=80&w=1929&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Update with actual thumbnail if available
   },
   {
     projectName: "Vidyarthi-App",
@@ -99,7 +103,7 @@ export const mobileAppsProjects = [
     isLive: false,
     contributors: ["Shivraj Bande"],
     thumbNail:
-      "https://raw.githubusercontent.com/shivrajbande/Vidyarthi-Gate-Pass-App/main/screenshot.png", // Update with actual thumbnail if available
+      "https://images.unsplash.com/photo-1560452891-a28b0484827c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3R1ZGVudCUyMGFwcHxlbnwwfHwwfHx8Mg%3D%3D",
   },
   {
     projectName: "Aacharya-App",
@@ -110,8 +114,7 @@ export const mobileAppsProjects = [
     isLive: false,
     contributors: ["Shivraj Bande"],
     thumbNail:
-      "https://raw.githubusercontent.com/shivrajbande/Aacharya-Gate-Pass-App/main/screenshot.png", // Update with actual thumbnail if available
-  },
+      "https://images.unsplash.com/photo-1514417034809-c7b296354f07?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YXBwc3xlbnwwfHwwfHx8Mg%3D%3D"}
 ];
 
 export const Solutions = [
@@ -131,6 +134,7 @@ export const Solutions = [
     figmaLink: "",
     github: "",
     mockups: [],
+    image : college,
   },
   {
     solutionName: "quickPG",
@@ -148,6 +152,7 @@ export const Solutions = [
     figmaLink: "",
     github: "",
     mockups: [],
+    image : "https://images.unsplash.com/photo-1555930112-0159bcdc3fe5?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     solutionName: "Smart Basket",
@@ -165,6 +170,7 @@ export const Solutions = [
     figmaLink: "",
     github: "",
     mockups: [],
+    image : "https://images.unsplash.com/photo-1609980705251-8d7d6266036d?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
 ];
 
