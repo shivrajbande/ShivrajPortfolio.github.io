@@ -17,14 +17,50 @@ export default function ProjectCard({
   isLive,
 }) {
   return (
-    <Card sx={{ height: "300px", width: "300px" }}>
-      <CardContent>
-        <Typography>{projectName}</Typography>
-        <img src={thumbnail} alt="projectName" style={{objectFit : "cover"}} width={"300px"} height={ "300px"}/>
-        <Typography>{shortDescription}</Typography>
+    <Card
+      sx={{
+        height: "400px",
+        width: "350px",
+        display: "flex",
+        justifyContent: "start",
+        flexDirection: "column",
+        alignItems: "start",
+        paddingX: "10px",
+      }}
+    >
+      <CardContent sx={{ height: "350px",
+            width: "100%",}}>
+        <h4>{projectName}</h4>
+        <Box
+          sx={{
+            height : "200px",
+            display: "flex",
+            justifyContent: "start",
+            alignItems: "center",
+            marginTop: "4px",
+            paddingRight : "4px",
+          }}
+        >
+          <img
+            src={thumbnail}
+            alt="projectName"
+            style={{ objectFit: "cover", height: "200px", width: "300px" }}
+          />
+        </Box>
+        <Typography
+          sx={{
+            whiteSpace: "nowrap",
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            marginTop: "4px",
+            maxWidth: "340px",
+          }}
+        >
+          {shortDescription}
+        </Typography>
       </CardContent>
       <CardActions>
-        <Button>Github</Button>
+        <Button variant="outlined">Github</Button>
         {isLive ?? <Button>live</Button>}
       </CardActions>
     </Card>

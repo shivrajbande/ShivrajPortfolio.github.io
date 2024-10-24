@@ -9,7 +9,7 @@ export const projectsData = [
     projectDescription:
       "The Weather Web App is a user-friendly and visually appealing web application designed to provide real-time weather information to users across various locations. Built using HTML, CSS, and JavaScript, this application leverages a weather API to fetch and display current weather conditions, forecasts, and other relevant meteorological data.",
     contributors: ["Shivraj Bande"],
-    shortDescription: "",
+    shortDescription: "Weather Web App to provide real-time weather information",
     thumbNail:
       "https://images.unsplash.com/photo-1531147646552-1eec68116469?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     isLive : true,
@@ -19,7 +19,7 @@ export const projectsData = [
     githubURL: "https://github.com/shivrajbande/E-auction-System",
     projectDescription:
       "An application for managing retail operations, including inventory management, sales tracking, and customer management.",
-    shortDescription: "",
+    shortDescription: "An application for managing retail operations",
     contributors: ["Shivraj Bande", "Boda Ganesh"],
     thumbNail:
       "https://media.licdn.com/dms/image/D4E12AQHmJjh1V0VBIg/article-cover_image-shrink_600_2000/0/1673722914401?e=2147483647&v=beta&t=AW_eULKaPSU_6SaP5v5F6MTrFLDEuVKotK1iulNfM88", 
@@ -30,7 +30,7 @@ export const projectsData = [
     githubURL: "https://github.com/shivrajbande/Portfolio-Website",
     projectDescription:
       "A personal portfolio website showcasing projects, skills, and experience.",
-    shortDescription: "",
+    shortDescription: "A personal portfolio website showcasing skills",
     contributors: ["Shivraj Bande"],
     thumbNail:
       "https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2021/08/how-to-make-an-online-portfolio.webp",
@@ -39,9 +39,9 @@ export const projectsData = [
   {
     projectName: "E-commerce Website",
     githubURL: "https://github.com/shivrajbande/e-commerce-web-app",
-    projectDescription:
+    shortDescription:
       "A full-featured e-commerce website with product listings, shopping cart and checkout functionality",
-    shortDescription: "",
+    // shortDescription: "",
     contributors: ["Shivraj Bande"],
     thumbNail:
       "https://images.unsplash.com/photo-1677693972403-db681288b5da?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8",
@@ -52,7 +52,7 @@ export const projectsData = [
     githubURL: "https://github.com/shivrajbande/crop-predict",
     projectDescription:
       "A task management application that allows users to create, update, and delete tasks efficiently.",
-    shortDescription: "",
+    shortDescription: "Efficiently predict crop based on different parameters",
     contributors: ["Shivraj Bande"],
     thumbNail:
       "https://images.unsplash.com/photo-1523349122880-44486ffa7b14?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y3JvcCUyMHByZWRpY3Rpb258ZW58MHx8MHx8fDI%3D", // Update with actual thumbnail if available
