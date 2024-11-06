@@ -1,10 +1,5 @@
-import React, { useContext} from "react";
-import {
-  Box,
-  Typography,
- 
-  useMediaQuery,
-} from "@mui/material";
+import React, { useContext } from "react";
+import { Box, Typography, useMediaQuery ,Button} from "@mui/material";
 import { Link } from "react-router-dom";
 import { NabIndexContext } from "../context/NavContext";
 
@@ -20,7 +15,6 @@ function Header() {
   const navigateToHome = () => {
     // navigate("/");
   };
-
 
   const handleDownLoadCv = (event) => {
     event.preventDefault();
@@ -51,8 +45,6 @@ function Header() {
       >
         {headerText}
       </Typography>
-
-     
 
       {isMobile === true ? (
         <></>
@@ -210,12 +202,20 @@ function Header() {
           >
             Contact
           </Box>
-          <CustomButton
+
+          <a
+  href={`${process.env.PUBLIC_URL}/assets/Shivraj_Resume.pdf`}
+  download="Shivraj_Resume.pdf"
+>
+  Download CV
+</a>
+
+          {/* <CustomButton
             backGroundColor="rgb(255, 92, 0)"
             text="Download CV"
             onClick={handleDownLoadCv}
             textColor="white"
-          />
+          /> */}
         </Box>
       )}
     </Box>

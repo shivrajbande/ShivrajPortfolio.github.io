@@ -3,8 +3,9 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { Box, TextField, InputAdornment } from "@mui/material";
 import { Person, Email, LocalPhone } from "@mui/icons-material";
-import connectImage from "../assets/images/letsconnect1.jpg";
 import CustomButton from "../components/CustomButton";
+
+
 
 function ContactPage() {
   const [name, setName] = useState("");
@@ -234,7 +235,7 @@ function ContactPage() {
             />
           </Box>
           <img
-            src={connectImage}
+            src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="lets connect"
             style={{ objectFit: "contain", height: "400px" }}
           />

@@ -1,6 +1,6 @@
 import aboutMeImage from "../assets/images/aboutme.jpeg";
 import codingImage from "../assets/images/coding.jpg";
-import groupImage from "../assets/images/group1.jpeg";
+
 import visionImage from "../assets/images/vision.jpg";
 
 export const Sections = [
@@ -21,7 +21,8 @@ I have a proven track record of developing mobile and web applications with a fo
     sectionName: "Entrepreneurial Journey",
     text: `As an entrepreneur, I have founded and developed software solutions aimed at enhancing operational efficiency for colleges, retailers, and end-users. One of my key products is a College Management System, where I handled everything from development to sales and marketing. I have actively engaged with potential clients, understanding their needs and pitching tailored solutions that align with their goals.
 In my entrepreneurial role, I also build and drive teams to achieve ambitious goals, creating a culture of collaboration and innovation. My understanding of customer behavior and user adaptability has been crucial in refining products for market success.`,
-    image: groupImage,
+    image:
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     sectionName: "Vision & Values",
@@ -73,4 +74,4 @@ export const topics = [
   "Reactjs",
   "Programming",
   "Machine Learning",
-]
+];

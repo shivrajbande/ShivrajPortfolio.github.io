@@ -20,7 +20,7 @@ import LayoutConstants from "../constants/layout";
 
 function Footer() {
   return (
-    <>
+    <Box sx={{backgroundColor : "rgb(255,255,240)"}}>
       <Box
         sx={{
           display: "flex",
@@ -56,12 +56,6 @@ function Footer() {
             Stay updated with solutions and blogs.
           </Typography>
           <Box component="form" sx={{ marginTop: "10px" }}>
-            {/* <input
-              type="email"
-              placeholder="Your email"
-              style={{ padding: "8px", width: "80%" }}
-            /> */}
-
             <TextField
               type="email"
               color="white"
@@ -78,24 +72,7 @@ function Footer() {
                   style: { fontSize: "12px" },
                 },
               }}
-              // InputProps={{
-              //   style: { fontSize: "16px" }, // Change this to your desired font size
-              // }}
-              // InputLabelProps={{
-              //   style: { fontSize: "16px" }, // Change this to your desired font size for the label
-              // }}
             />
-            {/* <button
-              type="submit"
-              style={{ padding: "8px", marginLeft: "0px", marginTop : "5px" }}
-            >
-              Subscribe
-            </button> */}
-            {/* <CustomButton
-              text={"Subscribe"}
-              textColor={"black"}
-              backGroundColor={"white"}
-            /> */}
 
             <Button
               variant="outlined"
@@ -119,7 +96,6 @@ function Footer() {
             display: "flex",
             flexDirection: "row",
             flex: "3",
-            // background : "red",
             justifyContent: "space-around",
           }}
         >
@@ -154,15 +130,7 @@ function Footer() {
               Contact
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              {/* <Link
-                href="#"
-                underline="none"
-                color="white"
-                target="_blank"
-                sx={{ marginBottom: "4px" }}
-              >
-                FAQ's
-              </Link> */}
+             
 
               <Box sx={{ display: "flex" }}>
                 <Email sx={{marginRight: "4px"}} />
@@ -267,7 +235,7 @@ function Footer() {
       <Typography variant="body2" align="center" sx={{ paddingBottom: "10px" }}>
         © 2024 Shivraj Bande. All Rights Reserved.
       </Typography>
-    </>
+    </Box>
   );
 }
 

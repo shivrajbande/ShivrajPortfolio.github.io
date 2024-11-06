@@ -42,5 +42,5 @@ function MySolutionsPage() {
       <Footer />
     </Box>
   );
-}
+} 
 export default MySolutionsPage;
