@@ -9,24 +9,17 @@ import Experience from "../components/Experience";
 import WorkApproachSteps from "../components/WorkApproach";
 import LayoutConstants from "../constants/layout";
 import { NabIndexContext } from "../context/NavContext";
+import { useNavigate } from "react-router-dom";
 function LandingPage() {
   const { navIndex, setNavIndex } = useContext(NabIndexContext);
   const roles = ["Software Developer", "Entrepreneur", "Freelancer"];
   const [roleIndex, setRoleIndex] = useState(0);
   const [role, setRole] = useState(roles[roleIndex]);
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     setRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
-  //   }, 20000);
+  const navigator = useNavigate();
 
-  //   // Update role based on index
-  //   setRole(roles[roleIndex]);
-
-  //   // Cleanup interval on component unmount
-  //   return () => clearInterval(intervalId);
-  // }, [roleIndex, roles]);
-
-  const handleWorkButton = () => {};
+  const handleWorkButton = () => {
+    navigator("/About")
+  };
   return (
     <Box>
       <Header />
@@ -36,8 +29,9 @@ function LandingPage() {
         justifyContent={"center"}
         alignItems={"center"}
         sx={{
-          background: "rgb(255,255,240)",
+          background: "white",
           paddingX: LayoutConstants.PAGE_HORIZONTAL_PADDING,
+          paddingBottom : "40px",
         }}
       >
         <Box sx={{ display: "flex", flex: "1", justifyContent: "center" }}>
@@ -45,35 +39,20 @@ function LandingPage() {
             src={profileImage}
             alt="profile"
             height={"auto"}
-            width={"300px"}
+            width={"300px"} 
             style={{
-              padding: "10px",
               borderRadius: "0%",
               objectFit: "contain",
             }}
           />
         </Box>
         <Box sx={{ flex: "1" }}>
-          <Typography>Hi, i am Shivraj Bande</Typography>
-          <Typography
-            sx={{
-              fontSize: "30px",
-              fontWeight: "600",
-              // transition: "transform 0.5s ease",
-              // transform: `translateX(10%)`,
-              // display: "inline-block",
-            }}
-          >
-            {role}
-          </Typography>
+       <span>   <Typography sx={{marginBottom : "2px"}}>Hello, I am</Typography>
+          <h2 style={{margin : "0px"}}>Shivraj Bande</h2>
+          </span>
 
-          <Typography sx={{ whiteSpace: "normal", marginBottom: "20px" }}>
-            Software Developer with 2 years of experience and a proven track
-            record of delivering high-quality user interfaces and robust code
-            solutions. Proficient in web and mobile apps development.
-            Experienced in fostering collaborative relationships across teams to
-            achieve project objectives efficiently. Committed to keeping up with
-            emerging technologies in software development.
+          <Typography sx={{ whiteSpace: "normal", marginBottom: "20px",marginTop : "4px" }}>
+          A passionate software developer with a knack for creating seamless user experiences and scalable solutions. I build intuitive web and mobile applications, leveraging the latest in technology to drive results. Let's bring your next idea to life!
           </Typography>
 
           <CustomButton
@@ -85,30 +64,11 @@ function LandingPage() {
         </Box>
       </Box>
 
-      <Box sx={{ background: "white" }}>
-        <Typography
-          sx={{
-            fontSize: "20px",
-            fontWeight: "600",
-            textAlign: "center",
-            padding: "10px 0px",
-          }}
-        >
-          Project Approach & Execution
-        </Typography>
+      <Box sx={{ background: "rgb(255,255,240)" }}>
         <WorkApproachSteps />
       </Box>
-      <Box sx={{ background: "rgb(255,255,240)" }}>
-        <Typography
-          sx={{
-            fontSize: "20px",
-            fontWeight: "600",
-            textAlign: "center",
-            paddingTop: "20px",
-          }}
-        >
-          Techincal Skills
-        </Typography>
+      <Box sx={{ background: "white" }}>
+       <h2 style={{textAlign : "center"}}> Techincal Skills</h2>
         <SkillSet />
         {/* <Typography
           sx={{ fontSize: "20px", fontWeight: "600", textAlign: "center" }}

@@ -132,15 +132,14 @@ function Footer() {
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
               <Link
-                href="#"
+                href="/About"
                 underline="none"
                 color="white"
-                target="_blank"
                 sx={{ marginBottom: "4px" }}
               >
-                About Us
+                About Me
               </Link>
-              <Link href="#" underline="none" color="white" target="_blank">
+              <Link href="/Solutions" underline="none" color="white" >
                 Solutions
               </Link>
             </Box>

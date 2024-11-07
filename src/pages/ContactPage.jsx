@@ -84,7 +84,7 @@ function ContactPage() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          backgroundColor: "rgb(255,255,240)",
+          backgroundColor: "white",
         }}
       >
         <Box
@@ -93,7 +93,7 @@ function ContactPage() {
             justifyContent: "center",
             alignItems: "center",
             height: "90%",
-            backgroundColor: "white",
+            border : "4px solid rgb(255,255,240)",
             borderRadius: "7px",
           }}
         >

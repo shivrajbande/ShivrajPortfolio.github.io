@@ -95,8 +95,7 @@ function SkillSet() {
         flexWrap: "wrap",
         gap: "40px",
         justifyContent: "center",
-        margin : "30px 0px 0px 0px",
-        padding :  "0px 40px 20px 40px",
+        paddingBottom : "40px",
       }}
     >
       {skillData.map((skill) => (

@@ -42,7 +42,7 @@ function Header() {
         paddingY: "10px",
 
         paddingX: LayoutConstants.PAGE_HORIZONTAL_PADDING,
-        background: "rgb(255,255,240)",
+        background: "white",
       }}
     >
       <Typography

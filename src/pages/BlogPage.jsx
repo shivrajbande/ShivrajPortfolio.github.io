@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Box, Typography, Divider, Link } from "@mui/material";
+import { Box, Typography, Divider, Link,Card } from "@mui/material";
 import LayoutConstants from "../constants/layout";
 import { stories, topics } from "../constants/content";
 import { MenuBook, RemoveRedEye } from "@mui/icons-material";
@@ -18,28 +18,26 @@ const StoryCard = ({ name, subTitle, published, views, reads, url }) => {
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography sx={{ color: "grey" }}>
             Published on {published}
-          </Typography>
-          <Box sx={{ display: "flex", justifyContent: "end" }}>
+          </Typography> 
+          <Box sx={{ display: "flex", justifyContent: "space-between",width : "110px" }}>
             <Box
               sx={{
                 display: "flex",
                 alignItems: "center",
-                marginRight: "10px",
                 justifyContent: "start",
               }}
             >
-              <RemoveRedEye />
+              <RemoveRedEye  sx={{marginRight : "3px"}}/>
               {views}
             </Box>
             <Box
               sx={{
                 display: "flex",
                 alignItems: "center",
-                marginRight: "10px",
                 justifyContent: "start",
               }}
             >
-              <MenuBook />
+              <MenuBook sx={{marginRight : "3px"}}/>
               {reads}
             </Box>
           </Box>
@@ -54,9 +52,10 @@ const TopicComponent = ({ name }) => {
     <Box
       sx={{
         border: "1px solid grey",
-        padding: "10px 20px",
+        padding: "8px 10px",
         borderRadius: "10px",
         color: "black",
+         gap :"10px",
       }}
     >
       {name}
@@ -72,12 +71,11 @@ export default function BlogPage() {
         sx={{
           display: "flex",
           paddingX: LayoutConstants.PAGE_HORIZONTAL_PADDING,
-          marginY: "20px",
         }}
       >
         <Box sx={{ flex: "2" }}>
-          <Typography sx={{ marginBottom: "10px" }}>Your Stoies</Typography>
-          <Divider />
+          <h2 >Your Stoies</h2>
+          <Divider  />
           {stories.map((story) => (
             <>
               <StoryCard
@@ -93,16 +91,15 @@ export default function BlogPage() {
           ))}
         </Box>
         <Box sx={{ flex: "1", marginLeft: "50px" }}>
-          <Typography sx={{ marginBottom: "10px" }}>Topics</Typography>
-          <Divider />
-          <Box
-            sx={{ display: "flex", flexWrap: "wrap", marginTop: "10px" }}
-            gap={"12px"}
+          <h2 >Topics</h2>
+          <Card
+            sx={{ display: "flex", flexWrap: "wrap",padding : "8px",gap : "10px"}}
+           
           >
             {topics.map((topic) => {
               return <TopicComponent name={topic} />;
             })}
-          </Box>
+          </Card>
         </Box>
       </Box>
 
