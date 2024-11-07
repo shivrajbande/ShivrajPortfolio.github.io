@@ -21,6 +21,7 @@ function App() {
         <Route path="/Solutions" element={<MySolutionsPage />} />
         <Route path="/About" element={<AboutPage />} />
         <Route path="/Blogs" element={<BlogPage />} />
+        {/* <Route path="/assets/Shivraj_Resume.pdf" element={<BlogPage />} /> */}
       </Routes>
     </NavBarProvider>
   );

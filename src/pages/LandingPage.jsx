@@ -5,7 +5,6 @@ import Footer from "../components/Footer";
 import profileImage from "../assets/images/profile6.jpg";
 import CustomButton from "../components/CustomButton";
 import SkillSet from "../components/SkillSet";
-import Experience from "../components/Experience";
 import WorkApproachSteps from "../components/WorkApproach";
 import LayoutConstants from "../constants/layout";
 import { NabIndexContext } from "../context/NavContext";

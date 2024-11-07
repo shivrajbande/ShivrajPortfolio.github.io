@@ -10,9 +10,7 @@ function AboutPage() {
     <Box>
       <Header />
       <Box
-        sx={{
-          paddingX: LayoutConstants.PAGE_HORIZONTAL_PADDING,
-        }}
+
       >
         {Sections.map((section, index) => (
           <Box
@@ -20,10 +18,12 @@ function AboutPage() {
               display: "flex",
               backgroundColor: index % 2 !== 0 ? "white" : "rgb(255,255,240)",
               height: "400px",
-              width: "100%",
+              maxWidth : "100vw",
               flexDirection: index % 2 === 0 ? "row-reverse" : "row",
               justifyContent: "space-between",
-              padding: "20px",
+              paddingX: LayoutConstants.PAGE_HORIZONTAL_PADDING,
+              paddingY : "20px",
+             
             }}
           >
             <Box
@@ -35,10 +35,8 @@ function AboutPage() {
                 justifyContent: "center",
               }}
             >
-              <Typography sx={{ fontWeight: 600, fontSize: "28px" }}>
-                {section.sectionName}
-              </Typography>
-              <Typography sx={{ whiteSpace: "normal", fontSize: "18px" }}>
+              <h2>  {section.sectionName}</h2>
+              <Typography sx={{ whiteSpace: "normal" }}>
                 {section.text}
               </Typography>
             </Box>
@@ -46,8 +44,9 @@ function AboutPage() {
               <img
                 src={section.image}
                 alt="about me"
-                width={index === 0 ? "200px" : "auto"}
-                height={index === 0 ? "300px" : "400px"}
+                width={"auto"}
+                height={
+                  "350px"}
                 style={{ objectFit: "contain" }}
               />
             </Box>
