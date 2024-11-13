@@ -25,7 +25,7 @@ function MyProjects() {
             <ProjectCard
               projectName={project.projectName}
               projectURL={project.githubURL}
-              projectContributors={project.projectContributors}
+              projectContributors={project.contributors}
               thumbnail={project.thumbNail}
               shortDescription={project.shortDescription}
               isLive={project.isLive}

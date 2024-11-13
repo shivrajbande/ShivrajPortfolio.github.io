@@ -57,6 +57,7 @@ export default function ProjectCard({
           flexDirection: "column",
           alignItems: "start",
           paddingX: "10px",
+          cursor : "pointer"
         }}
       >
         <CardContent>
