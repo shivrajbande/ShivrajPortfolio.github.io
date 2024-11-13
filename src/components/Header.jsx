@@ -1,5 +1,11 @@
 import React, { useContext } from "react";
-import { Box, Typography, useMediaQuery ,Button} from "@mui/material";
+import {
+  Box,
+  Typography,
+  useMediaQuery,
+  Button,
+  Grid2 as Grid,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 import { NabIndexContext } from "../context/NavContext";
 
@@ -8,7 +14,6 @@ import LayoutConstants from "../constants/layout";
 
 function Header() {
   const { navIndex, setNavIndex } = useContext(NabIndexContext);
-  const isMobile = useMediaQuery("(max-width:500px)");
   const navigateToCart = () => {
     // navigate("/cartInfo");
   };
@@ -27,18 +32,22 @@ function Header() {
   };
 
   const headerText = "<SB/>";
+  const isMobile = useMediaQuery("(max-width:500px)");
   return (
-    <Box
-      sx={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "space-between",
-        paddingY: "10px",
+    // <Box
+    //   sx={{
+    //     display: "flex",
+    //     flexDirection: "row",
+    //     justifyContent: "space-between",
+    //     paddingY: "10px",
 
-        paddingX: LayoutConstants.PAGE_HORIZONTAL_PADDING,
-        background: "rgb(255,255,240)",
-      }}
-    >
+    //     paddingX: LayoutConstants.PAGE_HORIZONTAL_PADDING,
+    //     background: "rgb(255,255,240)",
+    //   }}
+    // >
+
+    // </Box>
+    <Grid container columns={12} direction={"row"}>
       <Typography
         variant="h6"
         sx={{ color: "rgb(255, 92, 0)", fontWeight: "600" }}
@@ -46,9 +55,7 @@ function Header() {
         {headerText}
       </Typography>
 
-      {isMobile === true ? (
-        <></>
-      ) : (
+
         <Box
           sx={{
             display: "flex",
@@ -204,11 +211,11 @@ function Header() {
           </Box>
 
           <a
-  href={`${process.env.PUBLIC_URL}/assets/Shivraj_Resume.pdf`}
-  download="Shivraj_Resume.pdf"
->
-  Download CV
-</a>
+            href={`${process.env.PUBLIC_URL}/assets/Shivraj_Resume.pdf`}
+            download="Shivraj_Resume.pdf"
+          >
+            Download CV
+          </a>
 
           {/* <CustomButton
             backGroundColor="rgb(255, 92, 0)"
@@ -217,8 +224,8 @@ function Header() {
             textColor="white"
           /> */}
         </Box>
-      )}
-    </Box>
+      
+    </Grid>
   );
 }
 

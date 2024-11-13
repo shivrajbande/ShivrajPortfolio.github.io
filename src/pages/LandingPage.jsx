@@ -67,7 +67,7 @@ function LandingPage() {
           </Typography>
 
           <Typography sx={{ whiteSpace: "normal", marginBottom: "20px" }}>
-            Software Developer with 2 years of experience and a proven track
+            With 2 years of experience and a proven track
             record of delivering high-quality user interfaces and robust code
             solutions. Proficient in web and mobile apps development.
             Experienced in fostering collaborative relationships across teams to
