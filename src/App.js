@@ -1,4 +1,4 @@
-import "./App.css";
+
 
 // import { useHashLocation } from 'wouter/use-hash-location';
 import LandingPage from "./pages/LandingPage";
@@ -10,6 +10,7 @@ import MySolutionsPage from "./pages/MySolutionsPage";
 import { Router, Route, Routes } from "react-router-dom";
 import { NavBarProvider } from "./context/NavContext";
 import BlogPage from "./pages/BlogPage";
+
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         {/* <Route path="/assets/Shivraj_Resume.pdf" element={<BlogPage />} /> */}
       </Routes>
     </NavBarProvider>
+
   );
 }
 

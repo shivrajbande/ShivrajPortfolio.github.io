@@ -13,6 +13,7 @@ export const projectsData = [
     thumbNail:
       "https://images.unsplash.com/photo-1531147646552-1eec68116469?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     isLive : true,
+    hostedURL : "https://github.com/shivrajbande/weather-app",
   },
   {
     projectName: "E-Auction System",
@@ -24,6 +25,7 @@ export const projectsData = [
     thumbNail:
       "https://media.licdn.com/dms/image/D4E12AQHmJjh1V0VBIg/article-cover_image-shrink_600_2000/0/1673722914401?e=2147483647&v=beta&t=AW_eULKaPSU_6SaP5v5F6MTrFLDEuVKotK1iulNfM88", 
       isLive : false,
+      hostedURL : "",
   },
   {
     projectName: "Portfolio Website",
@@ -35,6 +37,7 @@ export const projectsData = [
     thumbNail:
       "https://www.hostinger.com/tutorials/wp-content/uploads/sites/2/2021/08/how-to-make-an-online-portfolio.webp",
       isLive : true,
+      hostedURL : "",
   },
   {
     projectName: "E-commerce Website",
@@ -46,6 +49,7 @@ export const projectsData = [
     thumbNail:
       "https://images.unsplash.com/photo-1677693972403-db681288b5da?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8",
       isLive : true,
+      hostedURL : "",
   },
   {
     projectName: "Crop-prediction Website",
@@ -57,6 +61,7 @@ export const projectsData = [
     thumbNail:
       "https://images.unsplash.com/photo-1523349122880-44486ffa7b14?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y3JvcCUyMHByZWRpY3Rpb258ZW58MHx8MHx8fDI%3D", // Update with actual thumbnail if available
       isLive : false,
+      hostedURL : "",
   },
 ];
 
@@ -69,6 +74,7 @@ export const mobileAppsProjects = [
     contributors: ["Shivraj Bande"],
     shortDescription: "A mobile app for seamless online shopping experience.",
     isLive: false,
+    hostedURL : "",
     thumbNail:
       "https://images.unsplash.com/photo-1648091856362-62436bfb145a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fG9ubGluZSUyMHNob3BwaW5nfGVufDB8fDB8fHwy", // Update with actual thumbnail if available
   },
@@ -80,6 +86,7 @@ export const mobileAppsProjects = [
     shortDescription: "A tool for generating APK files for mobile apps.",
     isLive: false,
     contributors: ["Shivraj Bande", "Boda Ganesh"],
+    hostedURL : "",
     thumbNail:
       "https://images.unsplash.com/photo-1600783245448-29b1aeb067b5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YXBwc3xlbnwwfHwwfHx8Mg%3D%3D", // Update with actual thumbnail if available
   },
@@ -91,6 +98,7 @@ export const mobileAppsProjects = [
     shortDescription: "An app for managing gate passes for students and faculty.",
     isLive: false,
     contributors: ["Shivraj Bande"],
+    hostedURL : "",
     thumbNail:
       "https://images.unsplash.com/photo-1682956767575-79aac8acb17c?q=80&w=1929&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Update with actual thumbnail if available
   },
@@ -102,6 +110,7 @@ export const mobileAppsProjects = [
     shortDescription: "A student-focused app for managing gate pass requests.",
     isLive: false,
     contributors: ["Shivraj Bande"],
+    hostedURL : "",
     thumbNail:
       "https://images.unsplash.com/photo-1560452891-a28b0484827c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c3R1ZGVudCUyMGFwcHxlbnwwfHwwfHx8Mg%3D%3D",
   },
@@ -113,6 +122,7 @@ export const mobileAppsProjects = [
     shortDescription: "An administrative app for managing gate pass issuance.",
     isLive: false,
     contributors: ["Shivraj Bande"],
+    hostedURL : "",
     thumbNail:
       "https://images.unsplash.com/photo-1514417034809-c7b296354f07?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YXBwc3xlbnwwfHwwfHx8Mg%3D%3D"}
 ];

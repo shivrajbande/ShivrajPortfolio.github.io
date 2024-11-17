@@ -1,11 +1,18 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { Box, TextField, InputAdornment } from "@mui/material";
+import {
+  Box,
+  TextField,
+  InputAdornment,
+  useMediaQuery,
+  Grid2 as Grid,
+  Button,
+} from "@mui/material";
 import { Person, Email, LocalPhone } from "@mui/icons-material";
 import CustomButton from "../components/CustomButton";
-
-
+import LayoutConstants from "../constants/layout";
+import CustomTextField from "../components/CustomTextField";
 
 function ContactPage() {
   const [name, setName] = useState("");
@@ -74,173 +81,83 @@ function ContactPage() {
         break;
     }
   };
+  const isMobile = useMediaQuery("(max-width:500px)");
 
   return (
     <Box>
       <Header />
-      <Box
+    <Box  sx={{display : "flex",justifyContent : "center",width : "100%",alignItems  :"center"}}>
+    <Box
         sx={{
-          width: "100%",
-          height: "80vh",
+          width: isMobile? "100%" : "50%",
           display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "rgb(255,255,240)",
+          flexDirection: "column",
+          gap: "16px",
+          height: isMobile
+          ? errors.email || errors.message || errors.phone || errors.name
+            ? "70vh"
+            : "60vh"
+          : "65vh",
+          justifyContent : "center",
+          paddingX: isMobile
+          ? LayoutConstants.MOBILE_HORIZONTAL_PADDING
+          : LayoutConstants.PAGE_HORIZONTAL_PADDING,
         }}
       >
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "90%",
-            backgroundColor: "white",
-            borderRadius: "7px",
-          }}
-        >
-          <Box
-            sx={{
-              backgroundColor: "white",
-              height: "80%",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "end",
-              justifyContent: "center",
-              paddingX: "20px",
-            }}
-          >
-            <TextField
-              placeholder="Name..."
-              value={name}
-              onChange={handleChange("name")}
-              onBlur={handleBlur("name")}
-              error={errors.name}
-              helperText={errors.name ? "Name is required" : ""}
-              slotProps={{
-                input: {
-                  startAdornment: (
-                    <InputAdornment sx={{ marginRight: "6px" }}>
-                      <Person />
-                    </InputAdornment>
-                  ),
-                },
-              }}
-              sx={{
-                marginY: "10px",
-                width: { xs: "100%", lg: "100%" },
-                ".MuiInputBase-root": {
-                  maxHeight: "50px",
-                  fontSize: "16px",
-                  background: "white",
-                },
-                "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "orange",
-                },
-              }}
-            />
-            <Box display={"flex"}>
-              <TextField
-                placeholder="Email..."
-                value={email}
-                onChange={handleChange("email")}
-                onBlur={handleBlur("email")}
-                error={errors.email}
-                helperText={errors.email ? "Enter a valid email address" : ""}
-                slotProps={{
-                  input: {
-                    startAdornment: (
-                      <InputAdornment sx={{ marginRight: "6px" }}>
-                        <Email />
-                      </InputAdornment>
-                    ),
-                  },
-                }}
-                sx={{
-                  marginY: "10px",
-                  marginRight: "10px",
-                  width: { xs: "100%", lg: "90%" },
-                  ".MuiInputBase-root": {
-                    maxHeight: "50px",
-                    fontSize: "16px",
-                    background: "white",
-                  },
-                  "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "orange",
-                  },
-                }}
-              />
-              <TextField
-                placeholder="Phone Number..."
-                value={phone}
-                onChange={handleChange("phone")}
-                onBlur={handleBlur("phone")}
-                error={errors.phone}
-                helperText={errors.phone ? "Enter a valid 10-digit phone number" : ""}
-                slotProps={{
-                  input: {
-                    startAdornment: (
-                      <InputAdornment sx={{ marginRight: "6px" }}>
-                        <LocalPhone />
-                      </InputAdornment>
-                    ),
-                  },
-                }}
-                sx={{
-                  marginY: "10px",
-                  width: { xs: "100%", lg: "90%" },
-                  ".MuiInputBase-root": {
-                    maxHeight: "50px",
-                    fontSize: "16px",
-                    background: "white",
-                  },
-                  "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "orange",
-                  },
-                }}
-              />
-            </Box>
-            <TextField
-              placeholder="Message..."
-              value={message}
-              onChange={handleChange("message")}
-              onBlur={handleBlur("message")}
-              error={errors.message}
-              helperText={errors.message ? "Message is required" : ""}
-              multiline
-              minRows={5}
-              sx={{
-                marginY: "20px",
-                width: { xs: "100%", lg: "100%" },
-                ".MuiInputBase-root": {
-                  minHeight: "200px",
-                  fontSize: "16px",
-                  background: "white",
-                  paddingLeft: "8px",
-                  lineHeight: "1.5",
-                  display: "flex",
-                  alignItems: "flex-start",
-                },
-                "& .Mui-focused .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "orange",
-                },
-              }}
-            />
-            <CustomButton
-              text={"Send"}
-              onClick={() => {
-                // Add further logic for form submission here, if needed.
-              }}
-              backGroundColor={"rgb(255, 92, 0)"}
-              textColor={"white"}
-            />
-          </Box>
-          <img
-            src="https://images.unsplash.com/photo-1577563908411-5077b6dc7624?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="lets connect"
-            style={{ objectFit: "contain", height: "400px" }}
+        <CustomTextField
+          type={"name"}
+          placeholder={"Name..."}
+          Icon={<Person />}
+          isError={errors.name}
+          handleChange={handleChange("name")}
+          handleBlur={handleBlur("name")}
+          value={name}
+          errorText={"Enter your name"}
+        />
+        <Box sx={{ display: "flex", gap: "16px" ,flexDirection : isMobile?"column" : "row"}}>
+          <CustomTextField
+            type={"email"}
+            placeholder={"email Number..."}
+            Icon={<Email />}
+            isError={errors.email}
+            handleChange={handleChange("email")}
+            handleBlur={handleBlur("email")}
+            value={email}
+            errorText={"Enter a valid email address"}
+          />
+          <CustomTextField
+            type={"phone"}
+            placeholder={"Phone Number..."}
+            Icon={<LocalPhone />}
+            isError={errors.phone}
+            handleChange={handleChange("phone")}
+            handleBlur={handleBlur("phone")}
+            value={phone}
+            errorText={"Enter a valid 10-digit phone number"}
           />
         </Box>
+        <TextField
+          placeholder="Message..."
+          value={message}
+          onChange={handleChange("message")}
+          onBlur={handleBlur("message")}
+          error={errors.message}
+          helperText={errors.message ? "Message is required" : ""}
+          multiline
+          minRows={5}
+          sx={{ marginY: "0px" }}
+        />
+        <Button
+          variant="outlined"
+          fullWidth
+          size="large"
+          sx={{ background: "rgb(255, 92, 0)", color: "white" }}
+        >
+          Send
+        </Button>
       </Box>
+    </Box>
+
       <Footer />
     </Box>
   );

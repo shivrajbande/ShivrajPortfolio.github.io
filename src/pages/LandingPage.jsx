@@ -1,5 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Box, Typography, Container, Button } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Container,
+  Button,
+  useMediaQuery,
+  Grid2 as Grid,
+} from "@mui/material";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import profileImage from "../assets/images/profile6.jpg";
@@ -8,106 +15,103 @@ import SkillSet from "../components/SkillSet";
 import WorkApproachSteps from "../components/WorkApproach";
 import LayoutConstants from "../constants/layout";
 import { NabIndexContext } from "../context/NavContext";
+import { useNavigate } from "react-router-dom";
 function LandingPage() {
   const { navIndex, setNavIndex } = useContext(NabIndexContext);
   const roles = ["Software Developer", "Entrepreneur", "Freelancer"];
   const [roleIndex, setRoleIndex] = useState(0);
   const [role, setRole] = useState(roles[roleIndex]);
-  // useEffect(() => {
-  //   const intervalId = setInterval(() => {
-  //     setRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
-  //   }, 20000);
+  const navigator = useNavigate();
 
-  //   // Update role based on index
-  //   setRole(roles[roleIndex]);
-
-  //   // Cleanup interval on component unmount
-  //   return () => clearInterval(intervalId);
-  // }, [roleIndex, roles]);
-
-  const handleWorkButton = () => {};
+  const handleWorkButton = () => {
+    navigator("/About");
+  };
+  const isMobile = useMediaQuery("(max-width:500px)");
   return (
-    <Box>
+    <Box
+      sx={
+        {
+          // paddingX: isMobile
+          //   ? LayoutConstants.MOBILE_HORIZONTAL_PADDING
+          //   : LayoutConstants.PAGE_HORIZONTAL_PADDING,
+          // backgroundColor : "pink",
+          // width : "550px"
+        }
+      }
+    >
       <Header />
-
-      <Box
-        display={"flex"}
-        justifyContent={"center"}
-        alignItems={"center"}
-        sx={{
-          background: "rgb(255,255,240)",
-          paddingX: LayoutConstants.PAGE_HORIZONTAL_PADDING,
-        }}
+      <Grid
+        container
+        columns={12}
+        // direction={isMobile ? "row" : "column"}
+        spacing={2} // Add spacing between items
+        direction={isMobile ? "column" : "row"} // Responsive direction
+        alignItems="center"
       >
-        <Box sx={{ display: "flex", flex: "1", justifyContent: "center" }}>
-          <img
-            src={profileImage}
-            alt="profile"
-            height={"auto"}
-            width={"300px"}
-            style={{
-              padding: "10px",
-              borderRadius: "0%",
-              objectFit: "contain",
-            }}
-          />
-        </Box>
-        <Box sx={{ flex: "1" }}>
-          <Typography>Hi, i am Shivraj Bande</Typography>
-          <Typography
+        <Grid size={{ xs: 12, md: 6, lg: 6 }}>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <img
+              src={profileImage}
+              alt="profile"
+              height={"300px"}
+              width={"auto"}
+              style={{
+                borderRadius: "0%",
+                objectFit: "contain",
+              }}
+            />
+          </Box>
+        </Grid>
+        <Grid size={{ xs: 12, md: 6, lg: 6 }}>
+          <Box
             sx={{
-              fontSize: "30px",
-              fontWeight: "600",
-              // transition: "transform 0.5s ease",
-              // transform: `translateX(10%)`,
-              // display: "inline-block",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: isMobile ? "center" : "left",
             }}
           >
-            {role}
-          </Typography>
+            <span>
+              {isMobile ? (
+                <></>
+              ) : (
+                <Typography sx={{ marginBottom: "2px" }}>
+                  Hello, I am
+                </Typography>
+              )}
+              <h2 style={{ margin: "0px" }}>Shivraj Bande</h2>
+            </span>
 
-          <Typography sx={{ whiteSpace: "normal", marginBottom: "20px" }}>
-            With 2 years of experience and a proven track
-            record of delivering high-quality user interfaces and robust code
-            solutions. Proficient in web and mobile apps development.
-            Experienced in fostering collaborative relationships across teams to
-            achieve project objectives efficiently. Committed to keeping up with
-            emerging technologies in software development.
-          </Typography>
+            <Typography
+              sx={{
+                whiteSpace: "normal",
+                marginBottom: "20px",
+                marginTop: "4px",
+              }}
+              textAlign={isMobile ? "center" : "left"}
+            >
+              Passionate software developer with a knack for creating seamless
+              user experiences and scalable solutions. I build intuitive web and
+              mobile applications, leveraging the latest in technology to drive
+              results. Let's bring your next idea to life!
+            </Typography>
 
-          <CustomButton
-            backGroundColor="rgb(255, 92, 0)"
-            text="About me"
-            onClick={handleWorkButton}
-            textColor="white"
-          />
-        </Box>
-      </Box>
+            <Box >
+            <CustomButton
+              backGroundColor="rgb(255, 92, 0)"
+              text="About me"
+              onClick={handleWorkButton}
+              textColor="white"
+            />
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
 
-      <Box sx={{ background: "white" }}>
-        <Typography
-          sx={{
-            fontSize: "20px",
-            fontWeight: "600",
-            textAlign: "center",
-            padding: "10px 0px",
-          }}
-        >
-          Project Approach & Execution
-        </Typography>
+      <Box sx={{ background: "rgb(255,255,240)" }}>
         <WorkApproachSteps />
       </Box>
-      <Box sx={{ background: "rgb(255,255,240)" }}>
-        <Typography
-          sx={{
-            fontSize: "20px",
-            fontWeight: "600",
-            textAlign: "center",
-            paddingTop: "20px",
-          }}
-        >
-          Techincal Skills
-        </Typography>
+      <Box sx={{ background: "white" }}>
+        <h2 style={{ textAlign: "center" }}> Techincal Skills</h2>
         <SkillSet />
         {/* <Typography
           sx={{ fontSize: "20px", fontWeight: "600", textAlign: "center" }}

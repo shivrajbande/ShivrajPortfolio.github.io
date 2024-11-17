@@ -5,226 +5,239 @@ import {
   useMediaQuery,
   Button,
   Grid2 as Grid,
+  Stack,
+  IconButton,
+  Drawer,
+  Link,
 } from "@mui/material";
-import { Link } from "react-router-dom";
+
 import { NabIndexContext } from "../context/NavContext";
+import NavBarItem from "../components/NavBarItem";
+import { useNavigate } from "react-router-dom";
+import {
+  Menu,
+  Close,
+  Home,
+  Person,
+  Code,
+  TipsAndUpdates,
+  AutoStories,
+  ContactPage,
+} from "@mui/icons-material";
 
 import CustomButton from "./CustomButton";
 import LayoutConstants from "../constants/layout";
 
 function Header() {
-  const { navIndex, setNavIndex } = useContext(NabIndexContext);
-  const navigateToCart = () => {
-    // navigate("/cartInfo");
-  };
-  const navigateToHome = () => {
-    // navigate("/");
+  const [isOpened, setIsOpened] = React.useState(false);
+
+  const handleDrawerOpen = () => {
+    setIsOpened(true);
   };
 
-  const handleDownLoadCv = (event) => {
-    event.preventDefault();
-    const link = document.createElement("a");
-    link.href = `${process.env.PUBLIC_URL}/Shivraj_Resume.pdf`;
-    link.download = "Shivraj_Resume.pdf";
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleClose = () => {
+    setIsOpened(false);
   };
 
   const headerText = "<SB/>";
   const isMobile = useMediaQuery("(max-width:500px)");
+
+  const navItems = [
+    {
+      navName: "Home",
+      Icon: Home,
+      navigate: "/",
+      index: 0,
+    },
+    {
+      navName: "About",
+      Icon: Person,
+      navigate: "/About",
+      index: 1,
+    },
+    {
+      navName: "Projects",
+      Icon: Code,
+      navigate: "/Projects",
+      index: 2,
+    },
+    {
+      navName: "Solutions",
+      Icon: TipsAndUpdates,
+      navigate: "/Solutions",
+      index: 3,
+    },
+    {
+      navName: "Blogs",
+      Icon: AutoStories,
+      navigate: "/Blogs",
+      index: 4,
+    },
+    {
+      navName: "Contact",
+      Icon: ContactPage,
+      navigate: "/Contact",
+      index: 5,
+    },
+  ];
+  const { navIndex, setNavIndex } = React.useContext(NabIndexContext);
+  const navigator = useNavigate();
+
   return (
-    // <Box
-    //   sx={{
-    //     display: "flex",
-    //     flexDirection: "row",
-    //     justifyContent: "space-between",
-    //     paddingY: "10px",
-
-    //     paddingX: LayoutConstants.PAGE_HORIZONTAL_PADDING,
-    //     background: "rgb(255,255,240)",
-    //   }}
-    // >
-
-    // </Box>
-    <Grid container columns={12} direction={"row"}>
-      <Typography
-        variant="h6"
-        sx={{ color: "rgb(255, 92, 0)", fontWeight: "600" }}
-      >
-        {headerText}
-      </Typography>
-
-
+    <Grid
+      container
+      columns={12}
+      sx={{
+        marginY: "10px",
+        paddingX: isMobile
+          ? LayoutConstants.MOBILE_HORIZONTAL_PADDING
+          : LayoutConstants.PAGE_HORIZONTAL_PADDING,
+      }}
+    >
+      {/* Site Branding (SB) */}
+      <Grid size={{ xs: 4, md: 2 }}>
         <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="flex-start"
+          sx={{ height: "100%" }}
+        >
+          <Typography
+            variant="h6"
+            textAlign="start"
+            sx={{ color: "rgb(255, 92, 0)", fontWeight: "600" }}
+          >
+            {headerText}
+          </Typography>
+        </Box>
+      </Grid>
+      {isMobile ? (
+        <Grid size={{ xs: 8, md: 2 }}>
+          <Box sx={{ display: "flex", justifyContent: "end" }}>
+            {!isOpened && ( // Conditionally render the Menu button
+              <IconButton onClick={handleDrawerOpen}>
+                <Menu />
+              </IconButton>
+            )}
+            <Drawer
+              open={isOpened}
+              onClose={handleClose} // Close Drawer
+              variant="temporary"
+              anchor={"right"}
+            >
+              <Box sx={{ width: 250 }}>
+                {/* <Typography variant="h6" sx={{ p: 2 }}>
+                  Drawer Content
+                </Typography>
+                <Button onClick={handleClose} sx={{ ml: 2 }}>
+                  Close Drawer
+                </Button> */}
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "end",
+                    marginTop: "15px",
+                    paddingRight: "15px",
+                  }}
+                >
+                 
+                  <IconButton onClick={() => handleClose()}>
+                    <Close />
+                  </IconButton>
+                </Box>
+                {navItems.map((item, key) => (
+                  <Box
+                    key={key}
+                    display={"flex"}
+                    component={Link}
+                    to={item.navigate}
+                    sx={{
+                      textDecoration: "none",
+                      color: "black",
+                      justifyContent: "start",
+                      paddingX: "10px",
+                      marginY: "18px",
+                      alignItems: "center",
+                    }}
+                    onClick={() => {
+                      
+                      setNavIndex(item.index);
+                      navigator(item.navigate);
+                      handleClose();
+                    }}
+                  >
+                    <IconButton
+                      sx={{ padding: "0px", marginRight: "20px" }}
+                      onClick={() => setNavIndex(item.index)}
+                    >
+                      {<item.Icon />}
+                    </IconButton>
+                    <Typography sx={{ fontSize: "18px" }}>
+                      {item.navName}
+                    </Typography>
+                  </Box>
+                ))}
+              </Box>
+            </Drawer>
+          </Box>
+        </Grid>
+      ) : (
+        <Grid
+          size={{ xs: 8, md: 10 }}
           sx={{
             display: "flex",
+            justifyContent: "flex-end",
             alignItems: "center",
-            gap: "60px",
+            gap: 3,
           }}
         >
-          <Box
-            component={Link}
-            to="/"
-            onClick={() => setNavIndex(0)}
-            sx={{
-              color: "black",
-              textDecoration: "none", // Removes underline
-              fontSize: "16px", // Changes font size
-              "&:hover": {
-                textDecoration: "underline",
-                textUnderlineOffset: "4px",
-                textDecorationColor: "rgb(255, 92, 0)",
-                textDecorationThickness: "2px",
-              },
-              textDecoration: navIndex === 0 ? "underline" : "none",
-              textUnderlineOffset: "4px",
-              textDecorationColor: "red",
-              textDecorationThickness: "2px",
-            }}
-          >
-            Home
+          {/* Navigation Items */}
+          <Box sx={{ display: "flex", gap: 6 }}>
+            <NavBarItem itemName={"Home"} itemIndex={0} navigateTo={"/"} />
+            <NavBarItem
+              itemName={"About"}
+              itemIndex={1}
+              navigateTo={"/About"}
+            />
+            <NavBarItem
+              itemName={"Projects"}
+              itemIndex={2}
+              navigateTo={"/Projects"}
+            />
+            <NavBarItem
+              itemName={"Solutions"}
+              itemIndex={3}
+              navigateTo={"/Solutions"}
+            />
+            <NavBarItem
+              itemName={"Blogs"}
+              itemIndex={4}
+              navigateTo={"/Blogs"}
+            />
+            <NavBarItem
+              itemName={"Contact"}
+              itemIndex={5}
+              navigateTo={"/Contact"}
+            />
           </Box>
 
-          <Box
-            component={Link}
-            to="/About"
-            onClick={() => setNavIndex(1)}
-            sx={{
-              color: "black",
-              textDecoration: "none", // Removes underline
-              fontSize: "16px", // Changes font size
-
-              "&:hover": {
-                textDecoration: "underline",
-                textUnderlineOffset: "4px",
-                textDecorationColor: "rgb(255, 92, 0)",
-                textDecorationThickness: "2px",
-              },
-              textDecoration: navIndex === 1 ? "underline" : "none",
-              textUnderlineOffset: "4px",
-              textDecorationColor: "red",
-              textDecorationThickness: "2px",
-            }}
-          >
-            About
-          </Box>
-
-          <Box
-            component={Link}
-            onClick={() => setNavIndex(2)}
-            sx={{
-              color: "black",
-              cursor: "pointer",
-              textDecoration: "none",
-              fontSize: "16px",
-              "&:hover": {
-                textUnderlineOffset: "4px",
-                textDecoration: "underline",
-                textDecorationColor: "rgb(255, 92, 0)",
-                textDecorationThickness: "2px",
-              },
-              textDecoration: navIndex === 2 ? "underline" : "none",
-              textUnderlineOffset: "4px",
-              textDecorationColor: "red",
-              textDecorationThickness: "2px",
-            }}
-            to="/Projects"
-          >
-            Projects
-          </Box>
-
-          <Box
-            component={Link}
-            onClick={() => setNavIndex(3)}
-            sx={{
-              color: "black",
-              cursor: "pointer",
-              textDecoration: "none",
-              fontSize: "16px",
-
-              "&:hover": {
-                textUnderlineOffset: "4px",
-                textDecoration: "underline",
-                textDecorationColor: "rgb(255, 92, 0)",
-                textDecorationThickness: "2px",
-              },
-              textDecoration: navIndex === 3 ? "underline" : "none",
-              textUnderlineOffset: "4px",
-              textDecorationColor: "red",
-              textDecorationThickness: "2px",
-            }}
-            to="/Solutions"
-          >
-            Solutions
-          </Box>
-
-          <Box
-            component={Link}
-            onClick={() => setNavIndex(4)}
-            sx={{
-              color: "black",
-              cursor: "pointer",
-              textDecoration: "none",
-              fontSize: "16px",
-              fontWeight: "400",
-              "&:hover": {
-                textUnderlineOffset: "4px",
-                textDecoration: "underline",
-                textDecorationColor: "rgb(255, 92, 0)",
-                textDecorationThickness: "2px",
-              },
-              textDecoration: navIndex === 4 ? "underline" : "none",
-              textUnderlineOffset: "4px",
-              textDecorationColor: "red",
-              textDecorationThickness: "2px",
-            }}
-            to="/Blogs"
-          >
-            Blogs
-          </Box>
-
-          <Box
-            component={Link}
-            onClick={() => setNavIndex(5)}
-            sx={{
-              color: "black",
-              cursor: "pointer",
-              textDecoration: "none",
-              fontSize: "16px",
-              fontWeight: "400",
-              "&:hover": {
-                textUnderlineOffset: "4px",
-                textDecoration: "underline",
-                textDecorationColor: "rgb(255, 92, 0)",
-                textDecorationThickness: "2px",
-              },
-              textDecoration: navIndex === 5 ? "underline" : "none",
-              textUnderlineOffset: "4px",
-
-              textDecorationColor: "rgb(255, 92, 0)",
-              textDecorationThickness: "2px",
-            }}
-            to="/Contact"
-          >
-            Contact
-          </Box>
-
+          {/* Download CV Button */}
           <a
-            href={`${process.env.PUBLIC_URL}/assets/Shivraj_Resume.pdf`}
-            download="Shivraj_Resume.pdf"
+            href="/assets/resume.pdf"
+            download="example.pdf"
+            style={{
+              borderRadius: "4px",
+              background: "rgb(255, 92, 0)",
+              color: "white",
+              borderColor: "transparent",
+              padding: "8px 15px",
+              textDecoration: "none",
+            }}
           >
             Download CV
           </a>
-
-          {/* <CustomButton
-            backGroundColor="rgb(255, 92, 0)"
-            text="Download CV"
-            onClick={handleDownLoadCv}
-            textColor="white"
-          /> */}
-        </Box>
-      
+        </Grid>
+      )}
     </Grid>
   );
 }
