@@ -51,7 +51,7 @@ export default function ProjectCard({
       <Card
         sx={{
           height: "auto",
-          width: "350px",
+          // width: "350px",
           display: "flex",
           justifyContent: "start",
           flexDirection: "column",

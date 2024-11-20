@@ -1,15 +1,17 @@
-
-import React, { createContext,  useState } from "react";
+import React, { createContext, useState } from "react";
 export const NabIndexContext = createContext();
 
-export const NavBarProvider = ({children}) => {
+
+export const NavBarProvider = ({ children }) => {
   const [navIndex, setNavIndex] = useState(0);
-  return(
+  return (
     <NabIndexContext.Provider
-    value={{
+      value={{
         navIndex,
-        setNavIndex
-    }}
-    >{children}</NabIndexContext.Provider>
-  )
+        setNavIndex,
+      }}
+    >
+      {children}
+    </NabIndexContext.Provider>
+  );
 };

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -23,6 +23,7 @@ import {
   TipsAndUpdates,
   AutoStories,
   ContactPage,
+  FileDownload,
 } from "@mui/icons-material";
 
 import CustomButton from "./CustomButton";
@@ -125,58 +126,95 @@ function Header() {
               variant="temporary"
               anchor={"right"}
             >
-              <Box sx={{ width: 250 }}>
-                {/* <Typography variant="h6" sx={{ p: 2 }}>
-                  Drawer Content
-                </Typography>
-                <Button onClick={handleClose} sx={{ ml: 2 }}>
-                  Close Drawer
-                </Button> */}
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "end",
-                    marginTop: "15px",
-                    paddingRight: "15px",
-                  }}
-                >
-                 
-                  <IconButton onClick={() => handleClose()}>
-                    <Close />
-                  </IconButton>
-                </Box>
-                {navItems.map((item, key) => (
+              <Box
+                sx={{
+                  width: 250,
+                  display: "flex",
+                  justifyContent: "space-between",
+                  flexDirection: "column",
+                  height: "100%",
+                  paddingY: "20px",
+                }}
+              >
+                <Box>
                   <Box
-                    key={key}
-                    display={"flex"}
-                    component={Link}
-                    to={item.navigate}
                     sx={{
-                      textDecoration: "none",
-                      color: "black",
-                      justifyContent: "start",
-                      paddingX: "10px",
-                      marginY: "18px",
-                      alignItems: "center",
-                    }}
-                    onClick={() => {
-                      
-                      setNavIndex(item.index);
-                      navigator(item.navigate);
-                      handleClose();
+                      display: "flex",
+                      justifyContent: "end",
+                      marginTop: "15px",
+                      paddingRight: "15px",
                     }}
                   >
-                    <IconButton
-                      sx={{ padding: "0px", marginRight: "20px" }}
-                      onClick={() => setNavIndex(item.index)}
-                    >
-                      {<item.Icon />}
+                    <IconButton onClick={() => handleClose()}>
+                      <Close />
                     </IconButton>
-                    <Typography sx={{ fontSize: "18px" }}>
-                      {item.navName}
-                    </Typography>
                   </Box>
-                ))}
+                  {navItems.map((item, key) => (
+                    <Box
+                      key={key}
+                      display={"flex"}
+                      component={Link}
+                      to={item.navigate}
+                      sx={{
+                        textDecoration: "none",
+                        color: "black",
+                        justifyContent: "start",
+                        paddingX: "10px",
+                        marginY: "18px",
+                        alignItems: "center",
+                      }}
+                      onClick={() => {
+                        setNavIndex(item.index);
+                        navigator(item.navigate);
+                        handleClose();
+                      }}
+                    >
+                      <IconButton
+                        sx={{ padding: "0px", marginRight: "20px" }}
+                        onClick={() => setNavIndex(item.index)}
+                      >
+                        {<item.Icon />}
+                      </IconButton>
+                      <Typography sx={{ fontSize: "18px" }}>
+                        {item.navName}
+                      </Typography>
+                    </Box>
+                  ))}
+                </Box>
+
+                <Box
+                  display={"flex"}
+                  sx={{
+                    textDecoration: "none",
+                    color: "black", 
+                    justifyContent: "start",
+                    paddingX: "10px",
+                    marginY: "18px",
+                    alignItems: "center",
+                  }}
+                >
+                  <IconButton
+                    sx={{ padding: "0px", marginRight: "20px" }}
+                    // onClick={() => setNavIndex(item.index)}
+                  >
+                    <FileDownload />
+                  </IconButton>
+
+                  <a
+                    href="/assets/resume.pdf"
+                    download="example.pdf"
+                    style={{
+                      // borderRadius: "4px",
+                      // background: "rgb(255, 92, 0)",
+                      color: "black",
+                      // borderColor: "transparent",
+                      // padding: "8px 15px",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Download CV
+                  </a>
+                </Box>
               </Box>
             </Drawer>
           </Box>

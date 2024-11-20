@@ -34,12 +34,13 @@ function MyProjects() {
 
         <Grid
           container
-          columnSpacing={7}
+          columns={12}
+          columnSpacing={2}
           rowSpacing={10}
           direction={isMobile ? "column" : "row"}
         >
           {projectsData.map((project) => (
-            <Grid size={{ xs: 12, md: 3 }}>
+            <Grid size={{ xs: 12, md: 4,lg:3}}>
               <ProjectCard
                 projectName={project.projectName}
                 projectURL={project.githubURL}
@@ -70,7 +71,7 @@ function MyProjects() {
 
         <Grid
           container
-          columnSpacing={7} 
+          columnSpacing={2} 
           rowSpacing={10}
           alignItems="center"
           justifyContent={"start"}
@@ -78,7 +79,7 @@ function MyProjects() {
           // sx={{backgroundColor : "green"}}
         >
           {mobileAppsProjects.map((project) => (
-            <Grid size={{ xs: 12, md: 3 }}>
+            <Grid size={{ xs: 12, md: 4,lg:3 }}>
               <ProjectCard
                 projectName={project.projectName}
                 projectURL={project.projectURL}

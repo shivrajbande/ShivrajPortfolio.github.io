@@ -1,34 +1,42 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {Box,Link} from "@mui/material";
 import { NabIndexContext } from "../context/NavContext";
+import { useNavigate } from "react-router-dom";
 
+function NavBarItem({ itemName, itemIndex, navigateTo }) {
+  const { navIndex, setNavIndex } = React.useContext(NabIndexContext);
+  const navigator = useNavigate();
+  // console.log(navigateTo);
 
-function NavBarItem({itemName, itemIndex,navigateTo}) {
-    const { navIndex, setNavIndex } = React.useContext(NabIndexContext);
+  const handleClick = ()=>{
+    setNavIndex(itemIndex);
+    navigator(navigateTo);
+  } 
+
   return (
     <Box
-    component={Link}
-    href={navigateTo}
-    onClick={() => setNavIndex({itemIndex})}
-    sx={{
-      color: "black",
-      textDecoration: "none", // Removes underline
-      fontSize: "16px", // Changes font size
-      "&:hover": {
-        textDecoration: "underline",    
+      component={Link}
+      href={navigateTo}
+      onClick={handleClick}
+      sx={{
+        color: "black",
+        textDecoration: navIndex === itemIndex ? "underline" : "none",
+        fontSize: "16px",
         textUnderlineOffset: "4px",
-        textDecorationColor: "rgb(255, 92, 0)",
+        textDecorationColor: navIndex === itemIndex ? "red" : "transparent",
         textDecorationThickness: "2px",
-      },
-      textDecoration: navIndex === itemIndex ? "underline" : "none",
-      textUnderlineOffset: "4px",
-      textDecorationColor: "red",
-      textDecorationThickness: "2px",
-    }}
-  >
-    {itemName}
-  </Box>
-  )
+        "&:hover": {
+          textDecoration: "underline",
+          textUnderlineOffset: "4px",
+          textDecorationColor: "rgb(255, 92, 0)",
+          textDecorationThickness: "2px",
+        },
+      }}
+    >
+      {itemName}
+    </Box>
+  );
 }
 
-export default NavBarItem
+
+export default NavBarItem 

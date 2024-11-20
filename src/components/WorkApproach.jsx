@@ -79,8 +79,8 @@ function WorkApproachSteps() {
               alignItems={"start"}
               sx={{
                 width: "auto",
-                height: "auto",
-                padding: "16px",
+                height: "200px",
+                padding: "20px",
                 boxSizing: "border-box",
                 backgroundColor: "white",
                 borderRadius: "20px",
