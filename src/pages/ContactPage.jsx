@@ -117,7 +117,7 @@ function ContactPage() {
         <Box sx={{ display: "flex", gap: "16px" ,flexDirection : isMobile?"column" : "row"}}>
           <CustomTextField
             type={"email"}
-            placeholder={"email Number..."}
+            placeholder={"Enter your email ..."}
             Icon={<Email />}
             isError={errors.email}
             handleChange={handleChange("email")}

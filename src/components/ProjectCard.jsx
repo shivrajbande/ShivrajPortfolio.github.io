@@ -42,7 +42,7 @@ export default function ProjectCard({
 
 
     setProjectData(temp); 
-    setIsDialogOpen(true);
+    // setIsDialogOpen(true);
   };
 
 
