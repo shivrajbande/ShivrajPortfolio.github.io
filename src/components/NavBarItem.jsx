@@ -1,25 +1,26 @@
-import React, { useEffect } from 'react';
-import {Box,Link} from "@mui/material";
+import React from "react";
+import { Box } from "@mui/material";
 import { NabIndexContext } from "../context/NavContext";
 import { useNavigate } from "react-router-dom";
 
 function NavBarItem({ itemName, itemIndex, navigateTo }) {
   const { navIndex, setNavIndex } = React.useContext(NabIndexContext);
-  const navigator = useNavigate();
-  // console.log(navigateTo);
+  const navigate = useNavigate();
 
-  const handleClick = ()=>{
+  const handleClick = (event) => {
+    event.preventDefault(); // Prevent the default link behavior
     setNavIndex(itemIndex);
-    navigator(navigateTo);
-  } 
+    navigate(navigateTo);
+  };
 
   return (
     <Box
-      component={Link}
-      href={navigateTo}
+      component="button"
       onClick={handleClick}
       sx={{
+        all: "unset", // Reset button styles
         color: "black",
+        cursor: "pointer",
         textDecoration: navIndex === itemIndex ? "underline" : "none",
         fontSize: "16px",
         textUnderlineOffset: "4px",
@@ -38,5 +39,4 @@ function NavBarItem({ itemName, itemIndex, navigateTo }) {
   );
 }
 
-
-export default NavBarItem 
+export default NavBarItem;
